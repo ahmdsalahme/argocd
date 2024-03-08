@@ -12,5 +12,5 @@ spec:
     path: releases/apps/web-app
     targetRevision: HEAD
   destination:
-    name: https://kubernetes.default.svc
+    server: https://kubernetes.default.svc
     namespace: default
