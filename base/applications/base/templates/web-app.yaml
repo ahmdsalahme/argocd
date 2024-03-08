@@ -3,12 +3,14 @@ kind: Application
 metadata:
   name: web-app
   namespace: argocd
+  labels:
+    repository: argocd
 spec:
   project: default
   source:
     repoURL: https://github.com/ahmdsalahme/argocd.git
+    path: releases/apps/web-app
     targetRevision: HEAD
-    path: applications/web-app
   destination:
-    server: https://kubernetes.default.svc
+    name: https://kubernetes.default.svc
     namespace: default
