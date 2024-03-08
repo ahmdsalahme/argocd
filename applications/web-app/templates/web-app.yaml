@@ -4,7 +4,7 @@ metadata:
   creationTimestamp: null
   labels:
     app: nginx
-  name: nginx
+  name: {{.Release.Name}}-nginx
 spec:
   replicas: 1
   selector:
@@ -20,5 +20,3 @@ spec:
       containers:
       - image: nginx
         name: nginx
-        resources: {}
-status: {}
