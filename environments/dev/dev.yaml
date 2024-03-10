@@ -11,3 +11,5 @@ spec:
     repoURL: 'https://github.com/ahmdsalahme/argocd'
     targetRevision: HEAD
   project: default
+  syncPolicy:
+    automated: {}
