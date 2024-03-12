@@ -5,7 +5,7 @@ config:
     # - url: "https://loki-prod-us-old.gofirefly.io/loki/api/v1/push"
     #   external_labels:
     #     cluster: "product"
-    - url: "https://loki-distributed-gateway.monitoring.svc"
+    - url: "http://loki-distributed-gateway.monitoring.svc"
       external_labels:
         cluster: "product"
   snippets:
