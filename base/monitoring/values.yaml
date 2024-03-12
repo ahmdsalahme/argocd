@@ -3,3 +3,6 @@ kubePrometheusStack:
 
 promtail:
   targetRevision: "6.2.2"
+
+loki:
+  targetRevision: "0.66.1"
