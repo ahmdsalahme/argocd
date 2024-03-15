@@ -2,10 +2,10 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: nginx-pvc
-  annotations:
-    argocd.argoproj.io/sync-options: Prune=false
-    argocd.argoproj.io/sync-options: Delete=false
+  name: {{ .Release.Name }}-pvc
+  # annotations:
+  #   argocd.argoproj.io/sync-options: Prune=false
+  #   argocd.argoproj.io/sync-options: Delete=false
 spec:
   accessModes:
     - ReadWriteOnce
