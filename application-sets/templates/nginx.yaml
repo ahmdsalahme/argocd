@@ -26,5 +26,5 @@ spec:
         namespace: default
       syncPolicy:
         automated: {}
-    syncPolicy:
-      automated: {}
+  syncPolicy:
+    automated: {}
