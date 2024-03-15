@@ -1,20 +1,21 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: kube-prometheus-stack
+  name: promtail
   namespace: argocd
   labels:
     repository: argocd
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
 spec:
   project: monitoring
   sources:
-    - repoURL: https://prometheus-community.github.io/helm-charts
-      chart: "kube-prometheus-stack"
-      targetRevision: {{ .Values.kubePrometheusStack.targetRevision | quote }}
+    - repoURL: https://grafana.github.io/helm-charts
+      chart: promtail
+      targetRevision: {{ .Values.promtail.targetRevision | quote }}
       helm:
-          releaseName: kube-prometheus-stack
           valueFiles:
-            - $values/releases/monitoring/prometheus-stack-values.yaml
+            - $values/releases/monitoring/promtail-values.yaml
     - repoURL: https://github.com/ahmdsalahme/argocd.git
       targetRevision: HEAD
       ref: values

@@ -1,20 +1,22 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: loki
+  name: kube-prometheus-stack
   namespace: argocd
   labels:
     repository: argocd
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
 spec:
   project: monitoring
   sources:
-    - repoURL: https://grafana.github.io/helm-charts
-      chart: loki-distributed
-      targetRevision: {{ .Values.loki.targetRevision | quote }}
+    - repoURL: https://prometheus-community.github.io/helm-charts
+      chart: "kube-prometheus-stack"
+      targetRevision: {{ .Values.kubePrometheusStack.targetRevision | quote }}
       helm:
-          releaseName: loki-distributed
+          releaseName: kube-prometheus-stack
           valueFiles:
-            - $values/releases/monitoring/loki-values.yaml
+            - $values/releases/monitoring/prometheus-stack-values.yaml
     - repoURL: https://github.com/ahmdsalahme/argocd.git
       targetRevision: HEAD
       ref: values
