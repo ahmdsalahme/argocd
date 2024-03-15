@@ -6,7 +6,7 @@ spec:
   generators:
   - list:
       elements:
-      - cluster: REST
+      - cluster: appppppp
         url: https://1.2.3.4
       - cluster: engineering-prod
         url: https://2.4.6.8
