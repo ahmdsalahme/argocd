@@ -5,11 +5,7 @@ metadata:
 spec:
   generators:
   - list:
-      elements:
-      - cluster: engineering-prod
-        url: https://2.4.6.8
-      - cluster: finance-preprod
-        url: https://9.8.7.6
+      elements: []
   template:
     metadata:
       name: '{{"{{"}}cluster{{"}}"}}-nginx'
