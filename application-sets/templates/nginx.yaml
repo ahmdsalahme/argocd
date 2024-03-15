@@ -14,9 +14,9 @@ spec:
         url: https://9.8.7.6
   template:
     metadata:
-      name: {{ printf '{{cluster}}-nginx' | quote }}
+      name: {{ printf "{{cluster}}-nginx" | quote }}
     spec:
-      project: applications
+      project: 'applications'
       source:
         repoURL: https://github.com/ahmdsalahme/argocd.git
         targetRevision: HEAD
