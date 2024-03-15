@@ -6,8 +6,6 @@ spec:
   generators:
   - list:
       elements:
-      - cluster: myapp
-        url: https://1.2.3.4
       - cluster: engineering-prod
         url: https://2.4.6.8
       - cluster: finance-preprod
