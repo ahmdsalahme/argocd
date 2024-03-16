@@ -16,10 +16,10 @@ prometheus-windows-exporter:
   prometheus:
     monitor:
       enabled: false
-alertmanager:
-  enabled: false
-grafana:
-  enabled: false
+# alertmanager:
+#   enabled: false
+# grafana:
+#   enabled: false
 kubeApiServer:
   serviceMonitor:
     metricRelabelings:
@@ -126,12 +126,12 @@ prometheusOperator:
   #         operator: "Equal"
   #         value: "public"
   #         effect: "NoSchedule"
-  resources:
-    limits:
-      memory: 1Gi
-    requests:
-      cpu: 200m
-      memory: 1Gi
+  # resources:
+  #   limits:
+  #     memory: 1Gi
+  #   requests:
+  #     cpu: 200m
+  #     memory: 1Gi
   # tolerations:
   #   - key: "karpenter.firefly.ai/disruption"
   #     operator: "Equal"
@@ -192,9 +192,9 @@ prometheus:
     retention: "14d"
     retentionSize: "190GB"
     externalLabels:
-      cluster: aws-cluster
-      environment: prod-us-v2
-      location: us-east-1
+      cluster: my-cluster
+      environment: dev
+      location: eu-east-1
     # tolerations:
     #   - key: "karpenter.firefly.ai/disruption"
     #     operator: "Equal"
@@ -210,28 +210,23 @@ prometheus:
     #               operator: In
     #               values:
     #                 - "when-empty"
-    remoteWrite:
-      - url: "https://thanos-receive.firefly.ai/api/v1/receive"
-        queueConfig:
-          maxShards: 10
-          minShards: 1
-          maxSamplesPerSend: 500
-          capacity: 10000
-    resources:
-      limits:
-        memory: 18Gi
-      requests:
-        cpu: 1
-        memory: 18Gi
+    # remoteWrite:
+    #   - url: "https://thanos-receive.firefly.ai/api/v1/receive"
+    #     queueConfig:
+    #       maxShards: 10
+    #       minShards: 1
+    #       maxSamplesPerSend: 500
+    #       capacity: 10000
+
     storageSpec:
       volumeClaimTemplate:
         spec:
-          storageClassName: "gp3"
+          # storageClassName: "gp3"
           accessModes:
             - ReadWriteOnce
           resources:
             requests:
-              storage: 200Gi
+              storage: 5Gi
     # priorityClassName: "application-critical"
     thanos:
       image: "quay.io/thanos/thanos:v0.34.0"
