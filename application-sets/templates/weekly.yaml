@@ -32,9 +32,9 @@ spec:
           helm:
             releaseName: weekly
             valueFiles:
+              - '$values/releases/applications/weekly/values.yaml'
               - '$values/application-sets/values/{{"{{"}}env{{"}}"}}/_global.yaml'
               - '$values/application-sets/values/{{"{{"}}env{{"}}"}}/weekly.yaml'
-              - '$values/releases/applications/weekly/values.yaml'
         - repoURL: https://github.com/ahmdsalahme/argocd.git
           targetRevision: creating-cronjob-applicationset
           ref: values
