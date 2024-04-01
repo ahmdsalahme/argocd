@@ -35,7 +35,7 @@ spec:
               - '$values/application-sets/values/{{"{{"}}env{{"}}"}}/_global.yaml'
               - '$values/application-sets/values/{{"{{"}}env{{"}}"}}/weekly.yaml'
         - repoURL: https://github.com/ahmdsalahme/argocd.git
-          targetRevision: weekly
+          targetRevision: creating-cronjob-applicationset
           ref: values
       destination:
         server: https://kubernetes.default.svc
