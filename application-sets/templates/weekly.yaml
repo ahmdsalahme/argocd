@@ -38,7 +38,7 @@ spec:
           targetRevision: weekly
           ref: values
       destination:
-        name: '{{"{{"}}cluster{{"}}"}}'
+        server: '{{"{{"}}cluster{{"}}"}}'
         namespace: "weekly"
       syncPolicy:
         automated: {}
