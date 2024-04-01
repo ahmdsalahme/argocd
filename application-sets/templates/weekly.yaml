@@ -10,9 +10,9 @@ spec:
   generators:
     - list:
         elements:
-          - cluster: https://kubernetes.default.svc
+          - cluster: minikube
             env: prod
-          - cluster: https://kubernetes.default.svc
+          - cluster: minikube
             env: dev
   template:
     metadata:
@@ -24,7 +24,7 @@ spec:
         firefly.ai/project: applications
         firefly.ai/env: '{{"{{"}}env{{"}}"}}'
     spec:
-      project: "applications"
+      project: applications
       sources:
         - repoURL: https://github.com/ahmdsalahme/argocd.git
           path: charts
@@ -38,8 +38,8 @@ spec:
           targetRevision: weekly
           ref: values
       destination:
-        server: '{{"{{"}}cluster{{"}}"}}'
-        namespace: "weekly"
+        server: https://kubernetes.default.svc
+        namespace: weekly
       syncPolicy:
         automated: {}
         #   prune: false
