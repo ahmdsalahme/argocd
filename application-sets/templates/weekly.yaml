@@ -1,0 +1,52 @@
+kind: ApplicationSet
+apiVersion: argoproj.io/v1alpha1
+metadata:
+  name: weekly-application-set
+  labels:
+    firefly.ai/argo: application-sets
+    firefly.ai/application: external-api
+    firefly.ai/project: weekly
+spec:
+  generators:
+    - list:
+        elements:
+          - cluster: minikube
+            env: prod
+          - cluster: minikube
+            env: dev
+  template:
+    metadata:
+      name: '{{"{{"}}env{{"}}"}}-{{"{{"}}cluster{{"}}"}}-weekly'
+      labels:
+        firefly.ai/argo: application-sets
+        firefly.ai/application: weekly
+        firefly.ai/cluster: '{{"{{"}}cluster{{"}}"}}'
+        firefly.ai/project: applications
+        firefly.ai/env: '{{"{{"}}env{{"}}"}}'
+    spec:
+      project: applications
+      sources:
+        - repoURL: https://github.com/ahmdsalahme/argocd.git
+          path: releases/applications/weekly
+          targetRevision: creating-cronjob-applicationset
+          helm:
+            releaseName: weekly
+            valueFiles:
+              - '$values/releases/applications/weekly/values.yaml'
+              - '$values/application-sets/values/{{"{{"}}env{{"}}"}}/_global.yaml'
+              - '$values/application-sets/values/{{"{{"}}env{{"}}"}}/weekly.yaml'
+        - repoURL: https://github.com/ahmdsalahme/argocd.git
+          targetRevision: creating-cronjob-applicationset
+          ref: values
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: weekly
+      syncPolicy:
+        automated: {}
+        #   prune: false
+        #   selfHeal: true
+        #   allowEmpty: false
+        # syncOptions:
+        #   - PrunePropagationPolicy=orphan
+        #   - ApplyOutOfSyncOnly=true
+        #   - CreateNamespace=true

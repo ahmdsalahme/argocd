@@ -1,0 +1,8 @@
+fullnameOverride: weekly
+commonLabels: {}
+schedule: "* * * * *"
+suspend: false
+
+image:
+  pullPolicy: IfNotPresent
+  debug: false
