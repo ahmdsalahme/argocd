@@ -27,7 +27,7 @@ spec:
       project: applications
       sources:
         - repoURL: https://github.com/ahmdsalahme/argocd.git
-          path: charts
+          path: releases/applications/weekly
           targetRevision: creating-cronjob-applicationset
           helm:
             releaseName: weekly
