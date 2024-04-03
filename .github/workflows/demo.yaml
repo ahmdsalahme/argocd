@@ -1,8 +1,6 @@
 name: "my work flow"
 on:
-  push:
-    branches:
-    - main
+  workflow_dispatch: {}
 jobs:
   job1:
     runs-on: ubuntu-latest
