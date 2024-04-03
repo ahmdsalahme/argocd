@@ -6,8 +6,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: List
-      run: pwd && ls
-    - name: Checkout
-      uses: actions/checkout@v2
-    - name: List Again
-      run: ls
+      run: pwd && echo ${{ github }}
+    - name: Bump version and push tag
+      uses: mathieudutour/github-tag-action@v6.0
+      with:
+        release_branches: main
+        github_token: ${{ github.token }}
+  
