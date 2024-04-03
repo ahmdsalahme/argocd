@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: web-app
+  name: nginx-example
   namespace: argocd
   labels:
     repository: argocd
@@ -11,7 +11,7 @@ spec:
   project: default
   source:
     repoURL: https://github.com/ahmdsalahme/argocd.git
-    path: releases/applications/web-app
+    path: releases/applications/nginx-example
     targetRevision: HEAD
   destination:
     server: https://kubernetes.default.svc
