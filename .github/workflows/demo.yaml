@@ -7,5 +7,6 @@ jobs:
   job1:
     runs-on: ubuntu-latest
     steps:
-    - name: List
-      run: echo "${{ toJSON(github) }}"
+    - id: print
+      run: pwd
+    - run: echo "${{ toJSON(steps.print.outputs) }}"
