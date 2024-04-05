@@ -5,6 +5,6 @@ jobs:
   job1:
     runs-on: ubuntu-latest
     steps:
-    - run: env
-      env:
-        myname: ${{ "ahmed" == "Ahmed" && true || false }}
+    - run: ls asdfasdf
+    - if: ${{ always }}
+      run: echo ALWAYS BLABLA
