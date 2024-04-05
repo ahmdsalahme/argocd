@@ -11,7 +11,10 @@ jobs:
     runs-on: ubuntu-latest
     env:
       MYNAME: Ahmed Salah
-    steps:
-    - run: echo "${{ env.DAYS_OF_MONTH }} --  $MYNAME -- $age"
-      env:
-        age: 23
+  call-workflow-passing-data:
+    uses: .github/workflows/new.yaml@main
+    with:
+      personal-name: Ahmed Salah
+    secrets:
+      envPAT: ${{ secrets.envPAT }}
+

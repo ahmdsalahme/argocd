@@ -1,8 +1,19 @@
+# Reusable Workflow
 name: new
 on:
-  workflow_dispatch: {}
+  workflow_call:
+    inputs:
+      personal-name:
+        required: true
+        type: string
+    secrets:
+      envPAT:
+        required: true
+
 jobs:
   job1:
     runs-on: ubuntu-latest
     steps:
-    - run: echo Hellow
+    - run: echo ${{ inputs.personal-name }}
+    - run: echo ${{ secrets.envPAT }} > tmp
+    - run: cat tmp
