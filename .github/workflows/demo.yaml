@@ -12,7 +12,7 @@ jobs:
     env:
       MYNAME: Ahmed Salah
   call-workflow-passing-data:
-    uses: ./.github/workflows/new.yaml@main
+    uses: ./.github/workflows/new.yaml
     with:
       personal-name: Ahmed Salah
     secrets:
