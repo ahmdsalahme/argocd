@@ -7,10 +7,6 @@ env:
   DAYS_OF_MONTH: 30
   
 jobs:
-  job1:
-    runs-on: ubuntu-latest
-    env:
-      MYNAME: Ahmed Salah
   call-workflow-passing-data:
     uses: ./.github/workflows/new.yaml
     with:
