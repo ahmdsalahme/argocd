@@ -1,0 +1,15 @@
+name: new
+on:
+  workflow_dispatch: {}
+permissions:
+  contents: write
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    steps:
+    - run: echo $GITHUB_OUTPUT
+    - run: echo $GITHUB_ENV
+    - id: print
+      run: echo "PWD=$(pwd)" >> $GITHUB_OUTPUT
+    - run: echo "${{ toJSON(steps.print.outputs) }}"
+    - run: echo $GITHUB_OUTPUT
