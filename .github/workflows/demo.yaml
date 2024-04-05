@@ -12,6 +12,6 @@ jobs:
     env:
       MYNAME: Ahmed Salah
     steps:
-    - run: echo "${{ var.DAYS_OF_MONTH }} --  $MYNAME -- $age"
+    - run: echo "${{ vars.DAYS_OF_MONTH }} --  $MYNAME -- $age"
       env:
         age: 23
