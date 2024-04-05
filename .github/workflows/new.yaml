@@ -18,7 +18,7 @@ jobs:
   job1:
     runs-on: ubuntu-latest
     outputs:
-      token: ${{ steps.get-token.outputs }}
+      token: ${{ steps.get-token.outputs.token }}
     steps:
     - run: echo ${{ inputs.personal-name }}
     - run: echo ${{ secrets.envPAT }} > tmp
