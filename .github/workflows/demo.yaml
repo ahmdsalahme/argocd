@@ -1,15 +1,14 @@
 name: demo
 on:
-  workflow_dispatch: {}
-permissions:
-  contents: write
+  workflow_dispatch:
 jobs:
   job1:
     runs-on: ubuntu-latest
     steps:
-    - run: echo $GITHUB_OUTPUT
-    - run: echo $GITHUB_ENV
-    - id: print
-      run: echo "PWD=$(pwd)" >> $GITHUB_OUTPUT
-    - run: echo "${{ toJSON(steps.print.outputs) }}"
-    - run: echo $GITHUB_OUTPUT
+    - run: env
+      env:
+        myarg_name: "Ahmed's Salah"
+        myarg_name2: ${{ 'Ahmed''s Salah' }}
+        myarg_num: 12
+        myarg_num2: ${{ 12 }}
+    - run: env
