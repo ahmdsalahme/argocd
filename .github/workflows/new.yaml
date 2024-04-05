@@ -24,4 +24,4 @@ jobs:
     - run: echo ${{ secrets.envPAT }} > tmp
     - run: cat tmp
     - id: get-token
-      run: echo "token=asd123" >> $GITHUB_OUTPUTS
+      run: echo "token=asd123" >> $GITHUB_OUTPUT
