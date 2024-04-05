@@ -13,4 +13,8 @@ jobs:
       personal-name: Ahmed Salah
     secrets:
       envPAT: ${{ secrets.envPAT }}
-
+  demo:
+    runs-on: ubuntu
+    needs: call-workflow-passing-data
+    steps:
+      - run: echo ${{ needs.call-workflow-passing-data.outputs.token }}

@@ -9,11 +9,19 @@ on:
     secrets:
       envPAT:
         required: true
+    outputs:
+      token:
+        description: "The first output string"
+        value: ${{ jobs.job1.outputs.token }}
 
 jobs:
   job1:
     runs-on: ubuntu-latest
+    outputs:
+      token: ${{ steps.get-token.outputs }}
     steps:
     - run: echo ${{ inputs.personal-name }}
     - run: echo ${{ secrets.envPAT }} > tmp
     - run: cat tmp
+    - id: get-token
+      run: echo "token=asd123" >> $GITHUB_OUTPUTS
