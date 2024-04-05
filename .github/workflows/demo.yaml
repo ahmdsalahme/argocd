@@ -7,8 +7,4 @@ jobs:
     steps:
     - run: env
       env:
-        myarg_name: "Ahmed's Salah"
-        myarg_name2: ${{ 'Ahmed''s Salah' }}
-        myarg_num: 12
-        myarg_num2: ${{ 12 }}
-    - run: env
+        myname: ${{ 'ahmed' == 'Ahmed' && true || false }}
