@@ -1,10 +1,17 @@
 name: demo
+
 on:
   workflow_dispatch:
+
+env:
+  DAYS_OF_MONTH: 30
+  
 jobs:
   job1:
     runs-on: ubuntu-latest
+    env:
+      MYNAME: Ahmed Salah
     steps:
-    - run: ls asdfasdf
-    - if: ${{ always() }}
-      run: echo ALWAYS BLABLA
+    - run: echo "$DAYS_OF_MONTH --  $MYNAME -- $age"
+      env:
+        age: 23
