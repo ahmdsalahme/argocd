@@ -7,4 +7,4 @@ jobs:
     steps:
     - run: env
       env:
-        myname: ${{ 'ahmed' == 'Ahmed' && true || false }}
+        myname: ${{ ahmed == Ahmed && true || false }}
