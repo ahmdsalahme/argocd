@@ -6,5 +6,4 @@ jobs:
     steps:
       - name: Call action
         uses: ahmdsalahme/actions@v1.2
-        with:
-         who-to-greet: "Ahmed Salah"
+      - run: fireflyci version
