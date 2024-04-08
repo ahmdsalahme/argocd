@@ -6,4 +6,5 @@ jobs:
     steps:
       - name: Call action
         uses: ahmdsalahme/actions@v2.3
-      - run: fireflyci version
+      - run: tree /home/runner/
+      - run: tree /opt
