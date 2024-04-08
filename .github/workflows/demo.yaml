@@ -16,4 +16,5 @@ jobs:
         command: post-plan
         workspace: gofirefly/infrastructure-prod
         args: --timeout 180
+      continue-on-error: true
     - run: fireflyci version
