@@ -5,10 +5,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Call action
-        uses: ahmdsalahme/actions@v2.12
+        uses: ahmdsalahme/actions@v2.13
         with:
           command: post-plan
-          plan-file: ./temp.json
-          workspace: firefly-prod
-          args: -l test
+          plan-file: plan.json
+          workspace: gofirefly/infrastructure-prod
+          args: --timeout 180
       - run: fireflyci version
