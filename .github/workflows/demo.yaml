@@ -8,7 +8,6 @@ jobs:
         uses: ahmdsalahme/actions@v2.13
         with:
           command: post-plan
-          plan-file: plan.json
           workspace: gofirefly/infrastructure-prod
           args: --timeout 180
       - run: fireflyci version
