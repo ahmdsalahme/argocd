@@ -5,7 +5,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Call action
-        uses: ahmdsalahme/actions@v2.8
+        uses: ahmdsalahme/actions@v2.9
         with:
           command: post-plan
       - run: fireflyci version
