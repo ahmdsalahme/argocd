@@ -18,7 +18,7 @@ spec:
           valueFiles:
             - $values/releases/monitoring/prometheus-stack-values.yaml
     - repoURL: https://github.com/ahmdsalahme/argocd.git
-      targetRevision: HEAD
+      targetRevision: prometheus-helm-values
       ref: values
   destination:
     server: 'https://kubernetes.default.svc'
