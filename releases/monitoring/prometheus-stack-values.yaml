@@ -114,6 +114,10 @@ prometheus-node-exporter:
           action: drop
           regex: 'node_filesystem.*'
 prometheusOperator:
+  admissionWebhooks:
+    patch:
+      enabled: false
+
   # admissionWebhooks:
   #   patch:
   #     priorityClassName: "application-critical"
