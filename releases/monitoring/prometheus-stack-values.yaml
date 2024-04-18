@@ -233,3 +233,12 @@ prometheus:
     serviceMonitorSelectorNilUsesHelmValues: false
     serviceMonitorSelector: {}
     serviceMonitorNamespaceSelector: {}
+
+# Start of Prometheus Rules
+additionalPrometheusRulesMap:
+ rule-name:
+   groups:
+   - name: my_group
+     rules:
+     - record: my_record
+       expr: 100
