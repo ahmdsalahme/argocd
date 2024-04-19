@@ -242,7 +242,7 @@ additionalPrometheusRulesMap:
  rule-name:
    groups:
    - name: my_group
-     interval: 3m
+     interval: 1m
      rules:
      - record: my_record
-       expr: 100
+       expr: 10 + my_record
