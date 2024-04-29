@@ -201,7 +201,7 @@ prometheus:
     additionalScrapeConfigs:
     - job_name: 'my-custom-job'
       static_configs:
-        - targets: ['http://host.minikube.internal/metrics']
+        - targets: ['host.minikube.internal/metrics']
     # tolerations:
     #   - key: "karpenter.firefly.ai/disruption"
     #     operator: "Equal"
