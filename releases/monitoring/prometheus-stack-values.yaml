@@ -249,7 +249,7 @@ additionalPrometheusRulesMap:
      interval: 30s
      rules:
      - record: node_uptime
-       expr: floor((node_time_seconds - node_boot_time_seconds)/60)
+       expr: floor((node_time_seconds - node_boot_time_seconds)/60) without (service)
        labels:
          team: front-end
          environment: production
