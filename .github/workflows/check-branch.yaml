@@ -2,7 +2,7 @@ name: "Validate Branch Name"
 on:
   push:
     branches:
-    - '!INFL-*'
+    - '!test'
 jobs:
   validate-branch:
     runs-on: ubuntu-latest
