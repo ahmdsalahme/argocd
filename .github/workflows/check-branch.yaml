@@ -1,0 +1,13 @@
+name: "Validate Branch Name"
+on:
+  push:
+    branches:
+    - 'm*'
+jobs:
+  validate-branch:
+    runs-on: ubuntu-latest
+    steps:
+    - name: List Branches
+      run: |
+        branches=$(curl -s -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" https://api.github.com/repos/${{ github.repository }}/branches | jq -r '.[].name')
+        echo "$branches"
