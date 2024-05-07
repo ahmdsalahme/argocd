@@ -1,13 +1,12 @@
 name: "Validate Branch Name"
+
 on:
-  push:
-    branches:
-    - '!test'
+  pull_request:
+    branches: ["main"]
+
 jobs:
   validate-branch:
     runs-on: ubuntu-latest
     steps:
     - name: List Branches
-      run: |
-        branches=$(curl -s -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" https://api.github.com/repos/${{ github.repository }}/branches | jq -r '.[].name')
-        echo "$branches"
+      run: echo "The pull request branch name is ${{ github.head_ref }}"
