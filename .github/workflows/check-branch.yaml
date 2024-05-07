@@ -8,7 +8,7 @@ jobs:
   validate-branch:
     runs-on: ubuntu-latest
     steps:
-    - name: Validate PR Associated with JIRA Ticket Prefix
+    - name: Validate PR Branch Name Associated with JIRA Ticket Prefix
       run: |
         if [[ ! "${{ github.head_ref }}" =~ ^INFL\-[0-9]{4}.+$ ]]; then
           echo [COMPLIANCE-ERROR] Please ensure that your branch name starts with the appropriate JIRA ticket prefix.
