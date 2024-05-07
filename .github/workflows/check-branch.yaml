@@ -2,8 +2,9 @@ name: "Firefly PR Compliance Checks"
 
 on:
   pull_request:
+    types: ["opened", "reopened", "edited"]
     branches: ["main"]
-
+    
 jobs:
   firefly-pr-compliance-checks:
     runs-on: ubuntu-latest
@@ -12,11 +13,9 @@ jobs:
       run: |
         branch_name=$( echo "${{ github.head_ref }}" | awk '{print tolower($0)}' )
         pr_title=$( echo ${{ github.event.pull_request.title }} | awk '{print tolower($0)}' )
-
-        echo $branch_name
-        echo $pr_title
         
-        # if [[ ! "${{ github.head_ref }}" =~ ^INFL\-[0-9]{4}.+$ ]]; then
-        #   echo [COMPLIANCE-ERROR] Please ensure that your branch name starts with the appropriate JIRA ticket prefix.
-        #   exit 1
-        # fi
+        if [[ ! "$branch_name" =~ ^infl\-[0-9]{4}.+$ ]] &&
+           [[ ! "$pr_title"    =~ ^infl(\-| )[0-9]{4}.+$ ]]; then
+          echo [COMPLIANCE-ERROR] Please ensure that your branch name starts with the appropriate JIRA ticket prefix.
+          exit 1
+        fi
