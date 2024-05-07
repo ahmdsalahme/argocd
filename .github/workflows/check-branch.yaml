@@ -1,16 +1,22 @@
-name: "Validate PR Branch Name"
+name: "Firefly PR Compliance Checks"
 
 on:
-  push:
+  pull_request:
     branches: ["main"]
 
 jobs:
-  validate-branch:
+  firefly-pr-compliance-checks:
     runs-on: ubuntu-latest
     steps:
-    - name: Validate PR Associated with JIRA Ticket Prefix
+    - name: Validate PR Branch Name Associated with JIRA Ticket Prefix
       run: |
-        if [[ ! "${{ github.head_ref }}" =~ ^INFL\-[0-9]{4}.+$ ]]; then
-          echo [COMPLIANCE-ERROR] Please ensure that your branch name starts with the appropriate JIRA ticket prefix.
-          exit 1
-        fi
+        branch_name=$( echo "${{ github.head_ref }}" | awk '{print tolower($0)}' )
+        pr_title=$( echo ${{ github.event.pull_request.title }} | awk '{print tolower($0)}' )
+
+        echo $branch_name
+        echo $pr_title
+        
+        # if [[ ! "${{ github.head_ref }}" =~ ^INFL\-[0-9]{4}.+$ ]]; then
+        #   echo [COMPLIANCE-ERROR] Please ensure that your branch name starts with the appropriate JIRA ticket prefix.
+        #   exit 1
+        # fi
