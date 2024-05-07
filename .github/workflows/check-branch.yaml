@@ -1,4 +1,4 @@
-name: "Validate Branch Name"
+name: "Validate PR Branch Name"
 
 on:
   pull_request:
@@ -8,5 +8,9 @@ jobs:
   validate-branch:
     runs-on: ubuntu-latest
     steps:
-    - name: List Branches
-      run: echo "The pull request branch name is ${{ github.head_ref }}"
+    - name: Validate PR Associated with JIRA Ticket Prefix
+      run: |
+        if [[ ! "${{ github.head_ref }}" =~ ^INFL\-[0-9]{4}.+$ ]]; then
+          echo [COMPLIANCE-ERROR] Your branch name must associated with JIRA ticket prefix!
+          exit 1
+        fi
