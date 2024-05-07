@@ -1,7 +1,7 @@
 name: "Validate PR Branch Name"
 
 on:
-  pull_request:
+  push:
     branches: ["main"]
 
 jobs:
@@ -11,6 +11,6 @@ jobs:
     - name: Validate PR Associated with JIRA Ticket Prefix
       run: |
         if [[ ! "${{ github.head_ref }}" =~ ^INFL\-[0-9]{4}.+$ ]]; then
-          echo [COMPLIANCE-ERROR] Your branch name must associated with JIRA ticket prefix!
+          echo [COMPLIANCE-ERROR] Please ensure that your branch name starts with the appropriate JIRA ticket prefix.
           exit 1
         fi
