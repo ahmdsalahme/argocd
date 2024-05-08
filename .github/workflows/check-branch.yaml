@@ -11,8 +11,8 @@ jobs:
     steps:
     - name: Validate PR and Branch Name Associated with JIRA Ticket Prefix
       run: |
-        branch_name=$( echo "${{ github.head_ref }}" | awk '{print tolower($0)}' )
-        pr_title=$( echo ${{ github.event.pull_request.title }} | awk '{print tolower($0)}' )
+        branch_name=$( echo '${{ github.head_ref }}' | awk '{print tolower($0)}' )
+        pr_title=$( echo '${{ github.event.pull_request.title }}' | awk '{print tolower($0)}' )
         
         if [[ ! "$branch_name" =~ ^infl\-[0-9]{4}.*$ ]]; then
           echo "Your Branch Name: ${{ github.head_ref }}"
