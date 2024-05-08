@@ -20,15 +20,17 @@ jobs:
         
         if [[ ! "$branch_name_lo" =~ ^infl\-[0-9]{4}.*$ ]]; then
           echo
-          echo "Your Branch Name: $branch_name"
-          echo [COMPLIANCE-ERROR] Please ensure that your branch name starts with the appropriate Jira ticket prefix.
+          echo "[COMPLIANCE ERROR - BRANCH NAME]"
+          echo "Branch Name: $branch_name"
+          echo "-> Please ensure that your branch name starts with the appropriate Jira ticket prefix (e.g. INFL-1234-branch-name)"
           exit_code=1
         fi
 
         if [[ ! "$pr_title_lo" =~ ^infl(\-| )[0-9]{4}.*$ ]]; then
           echo
-          echo "Your Pull Request Title: $pr_title"
-          echo [COMPLIANCE-ERROR] Please ensure that your PR title starts with the appropriate Jira ticket prefix.
+          echo "[COMPLIANCE ERROR - PR TITLE]"
+          echo "Pull Request Title: $pr_title"
+          echo "-> Please ensure that your PR title starts with the appropriate Jira ticket prefix (e.g. INFL-1234-pull-request-title)"
           exit_code=1
         fi
 
