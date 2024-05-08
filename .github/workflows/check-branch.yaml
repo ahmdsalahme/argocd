@@ -16,15 +16,18 @@ jobs:
       run: |
         branch_name_lo=$( echo "$branch_name" | awk '{print tolower($0)}' )
         pr_title_lo=$( echo "$pr_title" | awk '{print tolower($0)}' )
+        exit_code=0
         
         if [[ ! "$branch_name_lo" =~ ^infl\-[0-9]{4}.*$ ]]; then
           echo "Your Branch Name: $branch_name"
           echo [COMPLIANCE-ERROR] Please ensure that your branch name starts with the appropriate Jira ticket prefix.
-          exit 1
+          exit_code=1
         fi
 
         if [[ ! "$pr_title_lo" =~ ^infl(\-| )[0-9]{4}.*$ ]]; then
           echo "Your Pull Request Title: $pr_title"
           echo [COMPLIANCE-ERROR] Please ensure that your PR title starts with the appropriate Jira ticket prefix.
-          exit 1
+          exit_code=1
         fi
+
+        exit $exit_code
