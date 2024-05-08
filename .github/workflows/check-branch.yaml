@@ -14,16 +14,16 @@ jobs:
         branch_name: ${{ github.head_ref }}
         pr_title: ${{ github.event.pull_request.title }}
       run: |
-        branch_name=$( echo "$branch_name" | awk '{print tolower($0)}' )
-        pr_title=$( echo "$pr_title" | awk '{print tolower($0)}' )
+        branch_name_lc=$( echo "$branch_name" | awk '{print tolower($0)}' )
+        pr_title_lc=$( echo "$pr_title" | awk '{print tolower($0)}' )
         
-        if [[ ! "$branch_name" =~ ^infl\-[0-9]{4}.*$ ]]; then
+        if [[ ! "$branch_name_lc" =~ ^infl\-[0-9]{4}.*$ ]]; then
           echo "Your Branch Name: $branch_name"
           echo [COMPLIANCE-ERROR] Please ensure that your branch name starts with the appropriate Jira ticket prefix.
           exit 1
         fi
 
-        if [[ ! "$pr_title" =~ ^infl(\-| )[0-9]{4}.*$ ]]; then
+        if [[ ! "$pr_title_lc" =~ ^infl(\-| )[0-9]{4}.*$ ]]; then
           echo "Your Pull Request Title: $pr_title"
           echo [COMPLIANCE-ERROR] Please ensure that your PR title starts with the appropriate Jira ticket prefix.
           exit 1
