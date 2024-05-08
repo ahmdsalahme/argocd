@@ -28,7 +28,7 @@ jobs:
 
         if [[ ! "$pr_title_lo" =~ ^infl(\-| )[0-9]{4}.*$ ]]; then
           echo
-          echo "[COMPLIANCE ERROR - PR TITLE]"
+          echo "[COMPLIANCE ERROR - PULL REQUEST TITLE]"
           echo "Pull Request Title: $pr_title"
           echo "-> Please ensure that your PR title starts with the appropriate Jira ticket prefix (e.g. INFL-1234-pull-request-title)"
           exit_code=1
