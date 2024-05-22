@@ -5,18 +5,18 @@ metadata:
   namespace: argocd
   labels:
     repository: argocd
-  finalizers:
-  - resources-finalizer.argocd.argoproj.io
+  # finalizers:
+  # - resources-finalizer.argocd.argoproj.io
 spec:
   project: monitoring
   sources:
     - repoURL: https://prometheus-community.github.io/helm-charts
       chart: "kube-prometheus-stack"
-      targetRevision: {{ .Values.kubePrometheusStack.targetRevision | quote }}
+      targetRevision: "58.5.3"
       helm:
           releaseName: kube-prometheus-stack
           valueFiles:
-            - $values/releases/monitoring/prometheus-stack-values.yaml
+            - $values/charts/monitoring/prometheus-stack-values.yaml
     - repoURL: https://github.com/ahmdsalahme/argocd.git
       targetRevision: prometheus-helm-values
       ref: values
