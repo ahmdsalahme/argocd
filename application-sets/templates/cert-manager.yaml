@@ -5,12 +5,11 @@ metadata:
 spec:
   generators:
   - list:
-      elements:
-      - env: lab1
-      - env: lab2
+      elements: []
+      # - env: env1
   template:
     metadata:
-      name: '{{"{{"}}env{{"}}"}}-nginx'
+      name: '{{"{{"}}env{{"}}"}}-cert-manager'
     spec:
       project: 'applications'
       source:
