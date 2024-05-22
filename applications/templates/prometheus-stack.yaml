@@ -16,9 +16,9 @@ spec:
       helm:
           releaseName: kube-prometheus-stack
           valueFiles:
-            - $values/charts/monitoring/prometheus-stack-values.yaml
+            - $values/applications/values/prometheus-stack-values.yaml
     - repoURL: https://github.com/ahmdsalahme/argocd.git
-      targetRevision: main
+      targetRevision: HEAD
       ref: values
   destination:
     server: 'https://kubernetes.default.svc'
