@@ -5,13 +5,11 @@ metadata:
   namespace: argocd
   labels:
     repository: argocd
-  finalizers:
-  - resources-finalizer.argocd.argoproj.io
 spec:
   project: argocd
   source:
     repoURL: https://github.com/ahmdsalahme/argocd.git
-    path: base/applications
+    path: applications
     targetRevision: HEAD
   destination:
     server: 'https://kubernetes.default.svc'
