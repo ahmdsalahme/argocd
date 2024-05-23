@@ -19,7 +19,7 @@ spec:
         targetRevision: HEAD
       destination:
         server: https://kubernetes.default.svc
-        namespace: {{"{{"}}env{{"}}"}}-nginx-example
+        namespace: '{{"{{"}}env{{"}}"}}-nginx-example'
       syncPolicy:
         automated: {}
         syncOptions:
