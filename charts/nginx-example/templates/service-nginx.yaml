@@ -4,7 +4,6 @@ metadata:
   labels:
     app: nginx-example
   name: nginx-example
-  namespace: nginx-example
 spec:
   ports:
   - port: 8080
