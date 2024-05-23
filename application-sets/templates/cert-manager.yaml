@@ -5,8 +5,8 @@ metadata:
 spec:
   generators:
   - list:
-      elements: []
-      # - env: env1
+      elements:
+      - env: env1
   template:
     metadata:
       name: '{{"{{"}}env{{"}}"}}-cert-manager'
