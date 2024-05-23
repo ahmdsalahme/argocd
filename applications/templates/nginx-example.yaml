@@ -1,26 +1,20 @@
 apiVersion: argoproj.io/v1alpha1
-kind: ApplicationSet
+kind: Application
 metadata:
   name: nginx-example
+  namespace: argocd
+  labels:
+    repository: argocd
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
 spec:
-  generators:
-  - list:
-      elements:
-      - env: env1
-      - env: env2
-  template:
-    metadata:
-      name: '{{"{{"}}env{{"}}"}}-nginx-example'
-    spec:
-      project: 'applications'
-      source:
-        repoURL: https://github.com/ahmdsalahme/argocd.git
-        path: charts/nginx-example
-        targetRevision: HEAD
-      destination:
-        server: https://kubernetes.default.svc
-        namespace: nginx-example
-          # syncPolicy:
-          #   automated: {}
-          #   syncOptions:
-          #     - CreateNamespace=false
+  project: default
+  source:
+    repoURL: https://github.com/ahmdsalahme/argocd.git
+    path: charts/nginx-example
+    targetRevision: HEAD
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: nginx-example
+  syncPolicy:
+    automated: {}
