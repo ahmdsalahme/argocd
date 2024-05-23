@@ -6,7 +6,7 @@ spec:
   generators:
   - list:
       elements:
-      # - env: env1
+      - env: env1
       # - env: env2
   template:
     metadata:
@@ -24,3 +24,9 @@ spec:
         automated: {}
         syncOptions:
           - CreateNamespace=false
+      ignoreDifferences:
+        - group: ""
+          kind: PersistentVolumeClaim
+        - group: ""
+          kind: PersistentVolume
+
