@@ -29,4 +29,8 @@ spec:
           kind: PersistentVolumeClaim
         - group: ""
           kind: PersistentVolume
+      resourceExclusions:
+        - group: ""
+        kind: PersistentVolumeClaim
+
 
