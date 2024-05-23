@@ -12,6 +12,6 @@ spec:
   clusterResourceWhitelist:
     - group: '*'
       kind: '*'
-  namespaceResourceBlacklist:
-    - group: ''
-      kind: 'PersistentVolumeClaim'
+  # namespaceResourceBlacklist:
+  #   - group: ''
+  #     kind: 'PersistentVolumeClaim'
