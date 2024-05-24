@@ -6,7 +6,7 @@ spec:
   generators:
   - list:
       elements:
-      - env: env1 
+      - env: env1
       - env: env2
   syncPolicy:
     preserveResourcesOnDeletion: true
