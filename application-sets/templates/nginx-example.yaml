@@ -21,7 +21,7 @@ spec:
         server: https://kubernetes.default.svc
         namespace: '{{"{{"}}env{{"}}"}}-nginx-example'
       syncPolicy:
-        automated: {}
+        # automated: {}
         syncOptions:
           - CreateNamespace=false
 
