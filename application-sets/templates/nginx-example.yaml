@@ -8,6 +8,7 @@ spec:
       elements:
       - env: env1
       - env: env2
+      - env: env3
   syncPolicy:
     preserveResourcesOnDeletion: true
   template:
