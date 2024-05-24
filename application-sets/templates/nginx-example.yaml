@@ -21,6 +21,7 @@ spec:
         server: https://kubernetes.default.svc
         namespace: '{{"{{"}}env{{"}}"}}-nginx-example'
       syncPolicy:
+        preserveResourcesOnDeletion: true
         # automated: {}
         syncOptions:
           - CreateNamespace=false
