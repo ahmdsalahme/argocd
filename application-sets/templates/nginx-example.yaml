@@ -5,8 +5,8 @@ metadata:
 spec:
   generators:
   - list:
-      elements:
-      - env: env2
+      elements: []
+      # - env: env2
       # - env: env1
   # syncPolicy:
   #   preserveResourcesOnDeletion: true
