@@ -24,10 +24,4 @@ spec:
         automated: {}
         syncOptions:
           - CreateNamespace=false
-      ignoreDifferences:
-        - group: ""
-          kind: PersistentVolumeClaim
-        - group: ""
-          kind: PersistentVolume
-
 
