@@ -15,7 +15,7 @@ spec:
       project: 'applications'
       source:
         repoURL: https://github.com/ahmdsalahme/argocd.git
-        path: charts/nginx-example
+        path: charts/weekly
         targetRevision: migrating-branch
       destination:
         server: https://kubernetes.default.svc
