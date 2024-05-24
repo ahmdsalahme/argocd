@@ -8,8 +8,8 @@ spec:
       elements:
       - env: env1
       - env: env2
-  syncPolicy:
-    preserveResourcesOnDeletion: true
+  # syncPolicy:
+  #   preserveResourcesOnDeletion: true
   template:
     metadata:
       name: '{{"{{"}}env{{"}}"}}-nginx-example'
