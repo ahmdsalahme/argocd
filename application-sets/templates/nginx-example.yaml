@@ -8,6 +8,8 @@ spec:
       elements:
       - env: env1
       - env: env2
+  syncPolicy:
+    preserveResourcesOnDeletion: true
   template:
     metadata:
       name: '{{"{{"}}env{{"}}"}}-nginx-example'
@@ -21,7 +23,6 @@ spec:
         server: https://kubernetes.default.svc
         namespace: '{{"{{"}}env{{"}}"}}-nginx-example'
       syncPolicy:
-        preserveResourcesOnDeletion: true
         # automated: {}
         syncOptions:
           - CreateNamespace=false
