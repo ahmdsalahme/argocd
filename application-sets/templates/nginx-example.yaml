@@ -7,7 +7,7 @@ spec:
   - list:
       elements:
       - env: env2
-      # - env: env1
+      - env: env1
   syncPolicy:
     preserveResourcesOnDeletion: true
   template:
