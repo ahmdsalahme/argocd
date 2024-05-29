@@ -16,5 +16,5 @@ spec:
   destination:
     server: https://kubernetes.default.svc
     namespace: nginx-example
-  syncPolicy:
-    automated: {}
+  # syncPolicy:
+  #   automated: {}
