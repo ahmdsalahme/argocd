@@ -202,7 +202,7 @@ prometheus:
     additionalScrapeConfigs:
       - job_name: 'minikubehost'
         static_configs:
-          - targets: ['host.minikube.internal:8080']
+          - targets: ['host.minikube.internal:8081']
 
     # tolerations:
     #   - key: "karpenter.firefly.ai/disruption"
