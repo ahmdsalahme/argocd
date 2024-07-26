@@ -1,20 +1,13 @@
 name: demo
-on: ['workflow_dispatch']
+run-name: ${{ inputs.name }} Demo
+on:
+  workflow_dispatch:
+    inputs:
+      name:
+        description: Name
+        required: true
 jobs:
-  demoJob:
+  hello:
     runs-on: ubuntu-latest
     steps:
-      # - name: Call action
-      #   uses: ahmdsalahme/actions@v2.13
-      #   with:
-      #     command: post-plan
-      #     workspace: gofirefly/infrastructure-prod
-      #     args: --timeout 180
-    - name: Call action
-      uses: gofireflyio/fireflyci@patch-1
-      with:
-        command: post-plan
-        workspace: gofirefly/infrastructure-prod
-        args: --timeout 180
-      continue-on-error: true
-    - run: fireflyci version
+    - run: echo "Hello world!"
