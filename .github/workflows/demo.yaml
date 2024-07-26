@@ -1,5 +1,5 @@
 name: demo
-run-name: "${{ inputs.name == 'test' ? 'DEMO' : inputs.name }} Demo"
+run-name: "${{ github.event.inputs.name == 'test' ? 'DEMO' : github.event.inputs.name }} Demo"
 on:
   workflow_dispatch:
     inputs:
